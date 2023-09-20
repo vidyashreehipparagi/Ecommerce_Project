@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Ecommerce_Project.Models.Product>
+
+@{
+    ViewData["Title"] = "ViewCart";
+}
+
+
+@*<div class="container">
+    <div class="row productRow">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 product">
+                <div class="card">
+                    <img src="@Url.Content(item.Imageurl)" height="150" width="200" class="ProductImg" />
+                    <div class="card-body">
+                        <p class="card-title">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </p>
+                        <p class="card-title">
+                            Price:@Html.DisplayFor(modelItem => item.Price)
+                        </p>
+                        <p class="card-title">
+                            Category Name:@Html.DisplayFor(modelItem => item.Cname)
+
+                        </p>
+
+@*                        <a href="/Cart/AddToCart/@item.Id" class="btn btn-primary">Add to cart </a>
+                    
+                        <a href="/Cart/RemoveCart/@item.CartId" class="btn btn-primary">Remove </a>
+                        <a href="/Order/Order/@item.Id" class="btn btn-primary">Order </a>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="row productRow">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 product">
+                <div class="card productlist">
+                    <img src="@Url.Content(item.Imageurl)" height="150" width="200" class="ProductImg" />
+
+                    <table class="singletable">
+
+
+                        <tr>
+                            <td colspan="2" style="padding-left:15px" height="50px">
+                                <br /> @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="padding-left:15px"><br /> Price</td>
+                            <td><br />@Html.DisplayFor(modelItem => item.Price)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:15px">
+                                <br />
+                                <a href="/Cart/RemoveCart/@item.CartId" class="btn btn-primary">Remove </a>
+                            </td>
+                            <td>
+                                <br />
+                                <a href="/Order/GetOrder/@item.Id" class="btn btn-primary">Order </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
